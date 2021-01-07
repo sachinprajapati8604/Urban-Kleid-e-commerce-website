@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu+Mono&family=Ubuntu:ital@1&display=swap');
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+.container{
+    margin-top: 10px;
+}
+
+.simgdiv{
+    height: 600px;
+	position:relative;
+    border: 1px solid #fff;
+    overflow: hidden;
+    padding: 0px 0px;
+}
+
+.simgdiv img{
+    width:100%;
+	height: 100%;
+	object-fit: fill;
+	box-sizing: border-box;
+    background: linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.5)),  center no-repeat;
+    transition: transform 2s linear;
+    overflow: hidden;
+}
+.simgdiv img:hover{
+    transform: scale(1.1);
+   
+}
+/* -----------css for product shop now button------------ */
+
+.textcontent a{
+    text-decoration: none;
+}
+.textcontent a:hover{
+    color:#fff;
+    background-color:black;
+}
+
+.myshopbtn{
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    display: inline-block;
+    color:#fff;
+    background:#1f2134;
+    padding: 10px 20px;
+}
+
+.myshopbtndiv a{
+    text-decoration: none;
+}
+.myshopbtndiv a:hover{
+    /* background-position: left bottom; */
+    background: #000;
+    color: #f6f8fa;
+}
+
+
+/* -----------margin from top for container---------- */
+.topmargindiv{  
+margin-top: 60px;
+}
+
+ 
+/* ----------------One div image and text-------------- */
+.myimg img{
+    height: 26rem;
+    width: 75%;
+    margin: 10px;
+    overflow: hidden;
+}
+.mydivimg img{
+    width: 100%;
+    height: 18rem;
+
+}
+
+
+ 
+/* ---------css for paragraph text ------------ */
+.mytext p{
+    letter-spacing: 0.1em;
+    padding: 10px;
+    margin: 10px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* --------view all text css--------- */
+.viewalltext{ 
+color: #000000;
+font-weight: bolder;
+font-size: 23px;
+}
+
+
+/* -------css to hide text in mobile view----------- */
+ .hidetext-mob{
+     display: none;
+ }
+
+.webinfocol{
+    margin-top: 10px;
+    background-color: #f6f8fa;
+}
+
+  s{
+      margin-left: 10px;
+      color: #333;
+      font-size: 15px;
+  }
+
+.align-item-center{
+    align-items: center;
+    text-align: center;
+   
+}
+
+.bottom-margin{
+    margin-bottom: 200px;
+  
+}
+
+.myimages img{
+    object-fit: fill;
+    height: 22rem;
+    width: 100%;
+}
+
+.hideforlap{
+    display: none;
+}
+
+.bannertitle{
+    letter-spacing: 0.15em;
+    font-weight: 400;   
+}
+.h2heading {
+    font-weight: 400; 
+}
+.product-title{
+    font-weight: 400;
+    font-size: 20px;
+
+}
+
+@media (max-width: 1180px){
+
+nav ul li a{
+    font-size: 15px;
+    font-weight: 500;
+}
+  }
+  
+@media (max-width: 780px){
+    nav ul li a{
+        font-size: 18px;
+        font-weight: 500;
+    }
+      }
+
+/* ----------media query to make responsive ------------ */
+
+@media (max-width: 980px) {
+    
+  .hidecart{
+      display: inline-block;
+  }
+  .hidecartmob{
+      display: none;
+  }
+  .cartsize{
+      font-size: 20px;
+  }
+  .mycont{
+    width: 97%;
+  }
+  .hidetext-lap{
+      display: none;
+  }
+  .hidetext-mob{
+      padding: 35px;
+      display: inline-block;
+  }
+  .sizerow{
+      text-align: center;
+  }
+  .sizecol{
+      flex-basis: 100%;
+  }
+
+  }
+
+ 
+
+
+  @media(max-width:640px){
+
+      .textcontent h5,.h2heading{
+         font-weight: 400;
+          font-size: 15px;
+
+      }
+      .textcontent p{
+          font-size: 12px;
+      }
+      .card-title {
+          font-size: 20px;
+      }
+      .mytext p{
+          font-size: 12px;
+      }
+      .simgdiv {
+        height: auto;
+        position:relative;
+        border: 1px solid #fff;
+        overflow: hidden;
+        padding: 0px 0px;
+      }
+    .simgdiv img{
+        width:100%;
+        height: 100%;
+        object-fit: contain;
+        box-sizing: border-box;   
+        transition: 0.5s all ease-in-out;
+    }
+    .simgdiv img:hover{
+        transform: scale(1.1);
+    }
+    .myimages img{
+        height: 18rem;
+        width: 100%;
+    }
+    .mycardimg img{
+        height: 15rem;
+    }
+    .hidecollap{
+        display: none;
+    }
+    .myproductscol{
+        flex-direction: row;
+        flex-basis: 50%;
+    }
+    .prodimgmob{
+       
+            height: 250px;
+            position:relative;
+      
+    }
+    .slide-img img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        box-sizing: border-box;
+    }
+    .card-body a{
+        font-size: 12px;
+    }
+    .card-body h5{
+        font-size: 13px;
+    }.contact_bio{
+        display: block;
+    }
+    .hideforlap{
+        display: inline-block;
+    }
+    .hideformob{
+        display:none;
+    }
+  }

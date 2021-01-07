@@ -1,0 +1,69 @@
+.jumbotron {
+    background: #e9ecef;
+    color: #000;
+    border-radius: 0px;
+    }
+    .jumbotron-sm { padding-top: 24px;
+    padding-bottom: 24px; }
+    .jumbotron small {
+    color: #000;
+    }
+    .h1 small {
+    font-size: 24px;
+    }
+
+    .alertbox{
+        background-color: #e9ecef;
+    }
+    .backbtn{
+        background-color: #000;
+        color: #fff;
+    }
+    .backbtn:hover{
+        color: #000;
+        background-color: #fff;
+    }
+
+
+    /* ----writing css  for the about us page----------- */
+
+    
+        .aboutColumn {
+        min-height: 300px;
+        margin-top: 40px;
+        }
+    .aboutColumn img{
+        width: 100%;
+        height: 70vh;
+        object-fit: fill;
+    }
+    .aboutColumn h2{
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin: 20px;
+        font-size: 25px;
+    }
+    .aboutColumn p{
+        font-size: 15px;
+        margin: 20px;
+    }
+    @media(max-width:610px){
+        .aboutColumn h2{
+            font-weight: 500;
+            margin: 10px;
+            font-size: 20px;
+        }
+        .aboutColumn p{
+            font-size: 15px;
+            margin: 10px;
+        }
+        .aboutColumn img{
+            width: 100%;
+            height: auto;
+            object-fit: fill;
+        }
+        .aboutTitle {
+            font-size: 1rem;
+        }
+
+    }

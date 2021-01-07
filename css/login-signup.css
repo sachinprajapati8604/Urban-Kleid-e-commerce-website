@@ -1,0 +1,108 @@
+.wrapper{
+    max-width: 450px;
+    margin-top: 80px;
+   
+}
+.Form__Header {
+    margin-bottom: 24px;
+    text-align: center;
+}
+.Login_form{
+    margin-top: 40px;
+}
+.Heading {
+    font-family: "Avenir Next",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #000;
+    transition: color 0.2s ease-in-out;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+.Form__Legend{
+    font-size: 14px;
+}
+
+.Button-Login{
+    display: block;
+    margin-top: 20px;
+    min-width: 100%;
+    color: #fff;
+    border-radius: 0;
+    border-color: #000;
+    background-color: #000000;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    
+}
+.Button-Login:hover{
+    background: linear-gradient(to right, #000000 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .5s ease-out;
+    color: #000;
+}
+.Form_hint{
+    text-align: center;
+    margin: 24px 0 0 0;
+    font-size: 14px;
+}
+.Form_hint a{
+    text-decoration: none;
+}
+.Form_hint a:hover{
+    font-weight: bold;
+    color: #000000;
+}
+
+/* --------------userprofile css------------ */
+
+.PageHeader {
+   
+    position: relative;
+    margin: 35px 0;
+}
+.PageHeader a{
+    text-decoration: none;
+}
+.PageHeader a:hover{
+    color: #000000;
+}
+
+.PageHeader__Back{
+    display: inline-block;
+    margin-bottom: 25px;
+    font-size: 12px;
+    color: #1c1b1b;
+}
+
+.u-h1 {
+    font-size: 25px;
+}
+.u-h7 {
+    font-size: 15px;
+}
+
+.Segment__Title {
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #1c1b1b;
+}
+.PageLayout{
+    margin-top: 40px;
+}
+.PageLayout__Section:first-child {
+    margin-bottom: 60px;
+}
+
+.Accbutton{
+    width: 300px;
+}
+
+@media screen and (max-width: 640px){
+.PageHeader .SectionHeader__Heading {
+    margin-bottom: 10px;
+}
+}
