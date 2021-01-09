@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URBAN KLEID</title>
 <!-- Bootstrap CSS -->
@@ -15,8 +16,17 @@ integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
 integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<script>
+ //auto close alert
 
- <!--using FontAwesome--------------->
+ window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove(); 
+            });
+        }, 4000);
+    </script>
+
+  <!--using FontAwesome--------------->
 <script crossorigin="anonymous" src="https://kit.fontawesome.com/c8e4d183c2.js"></script>
 <!--fav-icon---------------->
 <link rel="shortcut icon" href="img/Transparent.png"/>
@@ -32,6 +42,34 @@ integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8S
 <body>
 
 <?php include 'basic/header.php'; ?>
+
+<?php
+//thi php code for remove item from cart
+
+// session_start();
+// session_destroy();
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+    if(isset($_POST['remove_item'])){
+        foreach($_SESSION['cart'] as $key=> $value){
+            if($value['proid']==$_POST['proid']){
+                unset($_SESSION['cart'][$key]);
+                $_SESSION['cart']=array_values($_SESSION['cart']);
+                echo '<div class="container">
+                <div class="alert alert-secondary" id="success-alert">
+                   <button type="button" class="close" data-dismiss="alert">x</button>
+                   <p> Product removed from cart </p>
+                </div>
+                </div>
+               
+                ';
+
+            }
+        }
+    }
+
+}
+?>
     <div class="container mt-4">
         <h2 class="display-4 carttitle"> Your  cart have  <?php echo $count;  ?> Items </h2>
         <hr />
@@ -79,8 +117,8 @@ integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8S
                                             </div>
                                         </div>
                                         
-                                        <form class="text-right" action="manage_cart.php" method="POST">
-                                        <button class="btn " name="remove_item"><i class="fa fa-trash-o" aria-hidden="true"></i> </button>                                   
+                                        <form class="text-right" action="" method="POST">
+                                        <button  class="btn " name="remove_item"><i class="fa fa-trash-o" aria-hidden="true"></i> </button>                                   
                                         <input type="hidden" name="proid" value='.$value["proid"].'>
                                         </form>
                                       
@@ -117,7 +155,7 @@ integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8S
         </div>
     </div>
 
-
+   
    <?php include 'basic/footer.php';  ?>
 
 

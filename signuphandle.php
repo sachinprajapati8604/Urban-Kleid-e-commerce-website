@@ -22,8 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         }
     
-    
- 
+        
      // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";

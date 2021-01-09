@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="15" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URBAN KLEID</title>
     <!-- Bootstrap CSS -->
@@ -17,8 +18,17 @@
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/c8e4d183c2.js"></script>
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+   
+    <script>
+ //auto close alert
+            window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove(); 
+            });
+            
+        }, 4000);
+    </script>
+    
     <!--fav-icon---------------->
     <link rel="shortcut icon" href="img/Transparent.png" />
     <link rel="stylesheet" href="css/style.css">
@@ -39,6 +49,91 @@
     $id = $_GET['proid'];
 
     ?>
+
+    <?php
+    error_reporting(0);
+//thi php code for manage item into cart
+
+// session_start();
+// session_destroy();
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    
+    if(isset($_POST['add_to_cart'])){
+        if(isset($_SESSION['cart'])){
+           
+            //checkimg existing item
+            $myitems=array_column($_SESSION['cart'],'proid');  
+            if(in_array($_POST['proid'],$myitems)){
+                echo '<div class="container">
+                <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                   <p class="text-center"> Product already added to cart </p>
+                </div>
+                </div>
+
+                ';
+
+              
+             
+            }
+else{
+            $count=count($_SESSION['cart']);
+            $_SESSION['cart'][$count]=array('proid'=>$_POST['proid'],'image'=>$_POST['image'],'item_name'=>$_POST['item_name'],'price'=>$_POST['price'],'bidprice'=>$_POST['bidprice'],'quantity'=>1);
+       //     print_r($_SESSION['cart']);
+      
+       echo '<div class="container">
+       <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+       </button>
+        <p class="text-center"> Product added to cart </p>
+       </div>
+       </div>
+
+       ';
+      
+                
+}
+        }
+        else{
+                $_SESSION['cart'][0]=array('proid'=>$_POST['proid'], 'image'=>$_POST['image'],'item_name'=>$_POST['item_name'],'price'=>$_POST['price'],'bidprice'=>$_POST['bidprice'],'quantity'=>1);
+            //    print_r($_SESSION['cart']);
+            echo '<div class="container">
+            <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+             <p class="text-center"> Product  added to cart </p>
+            </div>
+            </div>
+
+            ';
+                  
+        }
+    }
+    
+    if(isset($_POST['remove_item'])){
+        foreach($_SESSION['cart'] as $key=> $value){
+            if($value['proid']==$_POST['proid']){
+                unset($_SESSION['cart'][$key]);
+                $_SESSION['cart']=array_values($_SESSION['cart']);
+                echo '<div class="container">
+                <div class="alert alert-success" id="success-alert">
+                   <button type="button" class="close" data-dismiss="alert">x</button>
+                   <p> Product removed from cart </p>
+                </div>
+                </div>
+                ';
+              
+
+            }
+        }
+    }
+}
+?>
+
 
     <div class="container ">
         <div class="card imgcarddiv">
@@ -71,7 +166,7 @@
 
 
                         echo ' <div class="preview col-md-6">
-                <form action="manage_cart.php" method="POST">
+                <form action="" method="POST">
                 <div class="preview-pic tab-content">
                   <div class="tab-pane active" id="pic-1"><img src="img/' . $image . '" /></div>
                   <div class="tab-pane" id="pic-2"><img src="img/' . $img2 . '" /></div>
@@ -148,8 +243,8 @@
 
               
                 <div class="action">
-                    <div class="form-group  ">
-                    <button type="submit" name="add_to_cart" class="btn Button-Login productbtnmobile">Add to cart</button>
+                    <div class="form-group ">
+                    <button  type="submit" name="add_to_cart" class="btn Button-Login productbtnmobile">Add to cart</button>
                         <input type="hidden" name="proid" value="' . $proid . '">
 						<input type="hidden" name="image" value="' . $image . '">
 						<input type="hidden" name="item_name" value="' . $proname . '">

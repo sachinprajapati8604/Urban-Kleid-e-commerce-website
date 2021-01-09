@@ -44,24 +44,31 @@ $subject=$_POST['subject'];
 $message=$_POST['message'];
 
 
-// $query= "INSERT INTO `contactus` VALUES ('$name','$email','$subject','$message',current_timestamp())";
-
 $query="INSERT INTO `contactus`(`cu_name`, `cu_email`, `cu_subject`,`cu_message`, `cu_created`) VALUES ('$name','$email','$subject','$message',current_timestamp())";
 
 $data=mysqli_query($conn,$query);
 
 if($data)
 {
-    
+    // sending mail to user
+	$to_email = $email;
+	$subject = "Urban Kleid Team";
+	$body = "Hello Mr.  $name \n We have recieved your request , our team will responce you soon. \n\n\n Team \n Urban Kleid";
+	$headers = "From: Urban Kleid";
+
+	if (mail($to_email, $subject, $body, $headers)) {
     echo '<div class="container alertbox mt-4">
     <div class="alert " role="alert">
-        <h4 class="alert-heading">Thank you ! ' .$name .'</h4>
+        <h4 class="alert-heading">Thank you !' .$name .'</h4>
         <p> Your request has been recorded successfully , our team will response you soon.</p>
-        <hr>  
+		<hr>  
+		<p> you will recieve mail of your request at '.$to_email.' </p>
         <a class="btn  backbtn" href="index.php" role="button">RETURN TO HOME</a></div>
      
-    </div>';
-    
+	</div>';
+	} else {
+    echo "Email sending failed...";
+	}
 
 	
 }
@@ -69,7 +76,7 @@ else
 {
 	echo "<br>"."<br>"."<br>";
 	
-	echo "Error to send ";
+	echo "Something went wrong ...please try again later";
 }
 
 ?>

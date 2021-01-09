@@ -19,6 +19,19 @@
     <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <script>
+ //auto close alert
+
+ window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove(); 
+            });
+            
+        }, 4000);
+    
+              
+                   
+</script>
     <!--fav-icon---------------->
     <link rel="shortcut icon" href="img/Transparent.png" />
     <link rel="stylesheet" href="css/style.css">
@@ -32,7 +45,8 @@
 </head>
 
 <body>
-    
+
+
     
 <?php
 session_start();
@@ -41,22 +55,35 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     
     if(isset($_POST['add_to_cart'])){
         if(isset($_SESSION['cart'])){
+        
             //checkimg existing item
             $myitems=array_column($_SESSION['cart'],'proid');  
             if(in_array($_POST['proid'],$myitems)){
+               echo '<div class="container">
+                <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                   <p class="text-center"> Product already added to cart </p>
+                </div>
+                </div>
+
+                ';
                 echo "<script>
                 alert('Item already added to cart');
                 window.location.href='products.php';
-                     </script>";
+                     </script>";             
             }
 else{
             $count=count($_SESSION['cart']);
             $_SESSION['cart'][$count]=array('proid'=>$_POST['proid'],'image'=>$_POST['image'],'item_name'=>$_POST['item_name'],'price'=>$_POST['price'],'bidprice'=>$_POST['bidprice'],'quantity'=>1);
        //     print_r($_SESSION['cart']);
-                echo "<script>
+      
+           echo "<script>
                 alert('Item  added to cart');
                 window.location.href='products.php';
                         </script>";
+                
 }
         }
         else{
@@ -84,7 +111,6 @@ else{
     }
 }
 ?>
-
 
 
 

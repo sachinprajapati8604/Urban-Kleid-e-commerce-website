@@ -62,6 +62,8 @@ inputs.forEach((input) => {
 });
 
 
+
+
 // ---js for the product details page---------
 
 const imgs = document.querySelectorAll('.img-select a');
@@ -284,4 +286,7 @@ const discount_code = () => {
 						$('.count').val(1);
 					}
     	    	});
- 		});
+         });
+         
+
+        
