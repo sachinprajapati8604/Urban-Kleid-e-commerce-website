@@ -101,6 +101,11 @@
     width: 300px;
 }
 
+.remainingdays{
+    color: green;
+   
+}
+
 @media screen and (max-width: 640px){
 .PageHeader .SectionHeader__Heading {
     margin-bottom: 10px;

@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="css/productdetail.css">
 
+
 </head>
 
 <body>
@@ -39,75 +40,133 @@
        //  error_reporting(0);        
     ?>
 
+<section class="new-arrival mt-4">
 
+		<!--heading-------->
+		<div class="arrival-heading">
+			
+      <?php 
+      	$squery=$_GET['query'];	
+           echo '<h3 class="font-italic py-2 text-center"> Search results for "<mark>'.$squery.'</mark>" </h3> <hr>';
+            ?>
+		</div>
+		<!--products----------------------->
+		<div class="product-container">
+                    <!--products----------------------->
+                    
    
 <?php 
-		$squery=$_GET['query'];	
-         echo '<h3 class="font-italic py-2 text-center"> Search results for "<mark>'.$squery.'</mark>" </h3> <hr>';
-        $noresult=true;
-        
-        $sql=" SELECT * FROM newproducts WHERE (pro_id = '$squery' OR pro_name = '$squery' OR pro_shortdetail = '$squery' OR pro_price = '$squery')   ";
-        
-				$result=mysqli_query($conn,$sql);
-				while($row=mysqli_fetch_assoc($result)){
-					$noresult=false;
-					$proid=$row['pro_id'];
-                    $proname=$row['pro_name'];
-                    $imagename=$row['pro_imagename'];
-					$detail=$row['pro_shortdetail'];
-					$price=$row['pro_price'];
-                 
-                    echo '<section class="new-arrival">		
-                    <!--products----------------------->
-                    <div class="product-container">
-                    <form action="manage_cart.php" method="POST" >
+
+if((strtolower($squery)=="sachin prajapati") || (strtolower($squery)=="aneesh kumar")){
+    echo '<div class="container mx-auto mt-4 ">
+   <div class="jumbotron  jumbotron-fluid " >
+   <div class="container">
+     <h3 class="text-center btn-success display-4" id="type"> </h3> 
+     <h5 class="h2">Connect to Us</h5>
+     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+     <a href="https://www.facebook.com/bullet.raja.1998/" target="_blank" type="button" class="btn btn-danger"> <i class="fa fa-user-secret" aria-hidden="true"></i> Sachin Prajpati</a>
+    
+     <a href="https://www.facebook.com/profile.php?id=100006921490253" target="_blank" type="button" class="btn btn-warning"><i class="fa fa-user-secret" aria-hidden="true"></i> Aneesh Kumar</a>
+   </div>
+   </div>
+   </div >
+ </div>
+ ';
+ echo '<script>
+ var i = 0,
+ text;
+ text = "This website made by Sachin Prajapati and Aneesh Kumar. ";
+
+
+ function typing() {
+
+     if (i < text.length) {
+
+         document.getElementById("type").innerHTML += text.charAt(i);
+         i++;
+         setTimeout(typing, 100);
+
+     }
+ }
+ typing();
+</script>
+';
+               }
+            //   exit();
+               
+             
+
+     //   $sql=" SELECT * FROM newproducts WHERE (pro_id = '$squery' OR pro_name = '$squery' OR pro_shortdetail = '$squery' OR pro_price = '$squery')   ";
+     $sql=" SELECT * FROM newproducts";
+     $result=mysqli_query($conn,$sql);
+        $iter=0;
+     while($row = mysqli_fetch_assoc($result)){
+        $iter++;         
+        $proid[$iter]=$row['pro_id'];    
+        $imagename[$iter]=$row['pro_imagename'];
+        $price[$iter]=$row['pro_price'];
+        $bidprice[$iter]=$row['pro_bid_price'];
+        $pro_name[$iter]=$row['pro_name'];
+        $proname[$iter]=$row['pro_name'];
+        $detail[$iter]=$row['pro_shortdetail'];
+     }
+     $noresult=true;
+     for($i=1;$i<=$iter;$i++){
+         if((preg_match(strtolower("/$squery/"), strtolower($proname[$i]))||preg_match(strtolower("/$squery/"), strtolower($detail[$i])))){
+            
+                $noresult=false;
+                echo '  
+                <form action="manage_cart.php" method="POST">
                     <!--1------------------------------------>
-                    <div class="item-a ">
+                    <div class="item-a">
                         <!--box-slider--------------->
                         <div class="box">
                             <!--img-box---------->
                             <div class="slide-img">
-                            <a href="view_products.php?proid='.$proid.'">		  <img alt="1" src="img/'.$imagename.'"> </a>
+                            <a href="view_products.php?proid=' . $proid[$i] . '">		  <img alt="1" src="img/' . $imagename[$i] . '"> </a>
                                 <!--overlayer---------->
                                 <div class="overlay">
                                     <!--buy-btn------>
-                                    <button type="submit" name="add_to_cart" class="buy-btn">Buy Now</button>
+                                    <a href="view_products.php?proid=' . $proid [$i]. '" type="submit" name="add_to_cart" class="buy-btn">Buy Now</a>   
                                    
                                 </div>
                             </div>
                             <!--detail-box--------->
                             <div class="detail-box text-center">
-                                    <a href=" view_products.php?proid='.$proid.'">' . $proname . '</a>	<br>
+                                    <a href=" view_products.php?proid=' . $proid[$i] . '" class="product-title"> ' . $proname[$i] . '</a>	<br>
                                     <!--price-------->				  					  
-                                <a href="view_products.php?proid='.$proid.'" class="price">&#8377; ' . $price . '   <s class="text-muted">' . $bidprice . '</s>	</a> 
+                                <a href="view_products.php?proid=' . $proid [$i]. '" class="price">&#8377; ' . $price[$i] . '   <s class="text-muted">' . $bidprice [$i]. '</s>	</a> 
                             </div>  
                         </div>						 
                     </div>
-                    </form>
-                    </div>
+                    </form>';
+            } 
 
-</section>'
-					  ;	
-				}
+            else if($noresult&&($i==$iter)){
+                echo '<div class="container mx-auto"  style="min-height:30vh; ">
+                <div class="jumbotron jumbotron-fluid " >
+                <div class="container">
+                  <h5 class="text-xl-left">No Result, Word not matched. </h1> </br>
+                  <p>Suggetions </p>
+                  <ul >
+                  <li>Please search with strong keyword related to this website</li>
+                 
+                  </ul>
+                </div>
+                </div >
+              </div>
+              ';
+            }
+           
+            
+   //         continue;
+   
+            }
+           		
 				
-				if($noresult){
-                    echo '<div class="container mx-auto"  style="min-height:60vh; ">
-					<div class="jumbotron jumbotron-fluid " >
-                    <div class="container">
-                      <h5 class="text-xl-left">No Result, Word not matched. </h1> </br>
-                      <p>Suggetions </p>
-                      <ul >
-                      <li>Please search with strong keyword related to this website</li>
-                     
-                      </ul>
-                    </div>
-					</div >
-                  </div>
-                  ';
-                }
 				?>
 
-
+</section>
 
 
 <?php include 'basic/footer.php'; ?>

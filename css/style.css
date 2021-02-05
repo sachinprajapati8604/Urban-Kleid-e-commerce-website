@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body{
     margin:0px;
     padding: 0px;
     font-family: poppins;
     background-color: #ffffff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 *{
     box-sizing: border-box;
@@ -14,6 +14,35 @@ body{
 }
 .right-menu a{
     text-decoration: none;
+}
+
+.line{
+    margin: 0;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+/* drop down hover effect css */
+
+ul li.dropdown-menu{
+    min-width: 100%; /* Set width of the dropdown */
+    background: #f2f2f2;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+}
+ul li:hover .dropdown-menu{
+    display: block;	/* Display the dropdown */
+}
+ul li .dropdown-menu a{
+    display: block;
+}
+
+/* slider css */
+.sliderimg img{
+    width: 100%;
+    height: 35rem;
 }
 
 /* Navigation Bar CSS Code is have given below. */
@@ -27,6 +56,11 @@ nav{
     width:100%;
     box-shadow: 2px 2px 30px rgba(0,0,0,0.05);
     z-index: 100;
+}
+.dropdown-toggle::after {
+   
+    visibility: hidden;
+    margin-top: 0px;
 }
 
 .social-call{
@@ -76,19 +110,19 @@ nav{
 /* .menu li :hover{
     border-bottom: 1px solid #000000;
 } */
-.menu li a{
-    color: #868686;
+.menu li a ,.dropdown-toggle{
+    color: #000;
 }
-.menu li ::after {
+.menu li a::after {
     content: '';
     display: block;
     width: 0;
     height: 2px;
-    background: #000;
+    background: #eb5b25;
     transition: width .3s;
 }
 
-.menu li :hover::after {
+.menu li a:hover::after {
     width: 100%;
     transition: width .3s;
 }
@@ -103,33 +137,6 @@ nav{
 .form-cancel:hover{
     color: black;
     transition: all ease 0.3s;
-}
-.sale-lable{
-    width:38px;
-    height: 17px;
-    background-color: #f76b6a;
-    color: #ffffff;
-    font-weight: 400;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    position: absolute;
-    top: -20px;
-    right: -20px;
-}
-.sale-lable:after{
-    content: '';
-    width:0px;
-    height: 0px;
-    border-bottom: 5px solid transparent;
-    border-left: 3px solid transparent;
-    border-top: 7px solid #f76b6a;
-    border-right: 5px solid transparent;
-    position: absolute;
-    left: 10%;
-    top: 100%;
 }
 .fa-shopping-cart{
     position: relative;
@@ -152,14 +159,13 @@ nav{
 }
 /* Search Bar CSS Code is have given below */
 .search-bar{
-    
     width:100%;
-    height: 60px;
+    height: 75px;
     background-color: #ffffff;
     left: 0px;
     display: flex;
     justify-content: center;
-    box-shadow: 2px -5px 30px rgba(0,0,0,0.1);
+    box-shadow: 2px -1px 0px rgba(0,0,0,0.1);
     animation: search 0.3s;
 }
 .search-input{
@@ -167,20 +173,21 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 75px;
     margin-top: 0px;
 }
 .search-bar input{   
     width:100%;
     outline: none;
-    border-radius: 50px;
-    font-size: normal;
+    border-radius: 0px;
+    font-size: 30px;
     margin: 10px;
     padding: 8px 15px;
-    border: 1px solid #f0f0f0; 
+    border: 1px solid #fff; 
     
 }
 .search-cancel{
+    font-size: 25px;
     color: #272727;
     padding-right: 40px;
 }
@@ -199,114 +206,7 @@ nav{
         bottom: 0px;
     }
 }
-/* login css */
 
-.form{
-    width:100%;
-    height: 100%;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    background-color: rgba(0,0,0,0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 102;
-}
-.login-form,
-.sign-up-form{
-    width:420px;
-    padding: 20px 10px;
-    background-color: #ffffff;
-    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 5px;
-    position: relative;
- 
-}
-.login-form form,
-.sign-up-form form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-}
-.login-form strong,
-.sign-up-form strong{
-    color: #272727;
-    font-size: 2rem;
-    margin: 2px 7px 7px 7px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 500;
-}
-.login-form input,
-.sign-up-form input{
-    width:90%;
-    height: 45px;
-    margin: 6px 0px;
-    padding: 0px 10px;
-    border: 1px solid rgba(0,0,0,0.1);
-    outline: none;
-    border-radius: 7px;
-}
-.login-form input::placeholder,
-.sign-up-form input::placeholder{
-    color: rgba(0,0,0,0.5);
-}
-.login-form input[type="submit"],
-.sign-up-form input[type="submit"]{
-    background-color: black;
-    color: white;
-    border: none;
-    outline: none;
-    text-transform: uppercase;
-    margin-top: 10px;
-    border-radius: 3px;
-    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
-}
-.form-btns{
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-.form-btns a{
-    color: #4d4d4d;
-    font-size: 0.9rem;
-}
-.sign-up-btn{
-    border-bottom: 1px solid #868686;
-    line-height: 16px;
-}
-.form-cancel{
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    color: #868686;
-}
-.login-form,
-.sign-up-form,
-.form{
-    display: none;
-}
-.login-active,
-.login-active .login-form{
-    display: flex;
-    animation: fade 0.3s;
-}
- 
-.sign-up-active,
-.sign-up-active .sign-up-form{
-    display: flex;
-    animation: fade 0.3s;
-}
 @keyframes fade{
     0%{
         opacity: 0;
@@ -397,12 +297,22 @@ nav{
         height: 60px;
     }
     .search-input input{
-        border-radius: 1px;
-        border: 1px solid #f0f0f0;
-        font-size: 1rem;
+        border-radius: 0px;
+        border: 1px solid #ffffff;
+        font-size: 25px;
+    }
+    .search-bar{
+        height: 60px;
     }
 }
 @media(max-width:600px){
+
+   /* slider css */
+.sliderimg img{
+    width: 100%;
+    height: 18rem;
+}
+     
    
     .hideformobile{
         display: none;
@@ -428,243 +338,3 @@ nav{
     }
 }
 
-/* Product list-1 CSS Code is have given below. */
-
-.arrival-heading strong{
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-    color: #1b1919;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-top: 40px;
-    padding: 5px 30px;
-}
-.arrival-heading{
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.arrival-heading p{
-    color: #808080;
-    margin: 10px;
-    font-size: 0.9rem;
-}
-.product-container{
-    width:100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.add-cart{
-    position: absolute;
-    right: -20px;
-    top: 10px;
-    width:50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    background-color:white;
-    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
-    display: none;
-    animation: fade 0.3s;
- 
-}
-.add-cart:hover{
-    background-color: #f0f0f0;
-    transition: all ease 0.2s;
-    color: black;
-}
-
-.product-box:hover .add-cart{
-    display: flex;
-}
-
-.new-arrival{
-    display: flex;
-    flex-direction: column;
-     justify-content: center;
-    align-items: center;
-}
-
-
-/* Services Box and Footer CSS Code is have given below. */
-.services{
-    display: flex;
-    width: 90%;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: auto;
-}
-.services-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid rgba(0,0,0,0.1);
-    min-width: 250px;
-    padding: 20px;
-    margin: 15px;
-    flex-grow: 0.7;
-}
-.services-box i{
-    color: black;
-    font-size: 2rem;
-    margin: 15px;
-}
-.services-box span{
-    color: #222222;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    font-size: 1rem;
-}
-.services-box p{
-    color: #878787;
-    margin: 0px;
-    font-size: 0.9rem;
-}
-.foot{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-.copyright{
-    margin: 20px;
-    font-size: 0.9rem;
-    color: #4e4e4e;
-    letter-spacing: 1px;
-}
-.subscribe input{
-    width:240px;
-    height: 43px;
-    padding: 0px 20px;
-    border: 1px solid rgba(0,0,0,0.1);
-    outline: none;
-    box-shadow: 2px 2px 30px rgba(0,0,0,0.05);
-    
-}
-.subscribe input[type="submit"]{
-    width:120px;
-    background-color: black;
-    color: #ffffff;
-    margin: 0px 5px;
-}
-
-/* light slider css */
-
-/* product css */
-
-.box{
-	width:300px;
-	/* box-shadow: 2px 2px 30px rgba(0,0,0,0.2); */
-	border-radius: 10px;
-	overflow: hidden;
-	margin: 25px;
-}
-.slide-img{
-	height: 450px;
-	position:relative;
-}
-.slide-img img{
-	width:100%;
-	height: 100%;
-	object-fit: cover;
-	box-sizing: border-box;
-}
-.detail-box{
-	width: 100%;
-    display: inline-block;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 20px;
-	box-sizing: border-box;
-	font-family: calibri;
-}
-.type{
-	display: flex;
-	flex-direction: row;
-}
-.detail-box a ,.card-body a{
-    text-decoration: none;
-	color:#222222;
-	margin: 5px 0px;
-	font-weight: 400;
-	letter-spacing: 0.5px;
-	padding-right: 8px;
-}
-.type a:hover{
-    color: #45846a;
-}
-.type span{
-	color:rgba(26,26,26,0.5);
-}
-.price{
-	color: #333333;
-	font-weight: 600;
-	font-size: 1.1rem;
-	font-family: poppins;
-	letter-spacing: 0.5px;
-}
-.overlay a{
-    text-decoration: none;
-}
-.overlay{
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
-	width:100%;
-	height: 100%;
-	background-color: rgba(92,95,236,0.6);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.buy-btn{
-	width: 160px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFFFFF;
-    color: #252525;
-    font-weight: 700;
-    letter-spacing: 1px;
-    font-family: calibri;
-    border-radius: 20px;
-	/* box-shadow: 2px 2px 30px rgba(0,0,0,0.2); */
-}
-.buy-btn:hover{
-	color:#FFFFFF;
-	background-color: #000000;
-	transition: all ease 0.3s;
-}
-.overlay{
-	visibility: hidden;
-}
-.slide-img:hover .overlay{
-	visibility: visible;
-	animation:fade 0.5s;
-}
- 
-@keyframes fade{
-	0%{
-		opacity: 0;
-	}
-	100%{
-		opacity: 1;
-	}
-}

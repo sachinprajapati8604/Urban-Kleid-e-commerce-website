@@ -9,9 +9,6 @@
     --text-clr: #4f4f4f;
 }
 
-p {
-    color: #6c757d;
-}
 
 a {
     text-decoration: none;
@@ -117,6 +114,22 @@ h2 {
     color: red;
 }
 
+.table tr{
+    border: none;
+    outline: none;
+}
+.couponcode{
+    color: green;
+}
+.mymedia img{
+    height: 280px;
+    width: 250px;
+}
+.user-btn a{
+    color: #fff;
+   
+}
+
 @media(max-width:600px){
    
     .mycarttitle {  
@@ -143,6 +156,10 @@ h2 {
         margin-left: 20px;
         text-align: end;
         flex-basis: 40%;
+    }
+    .mymedia img{
+        height: 150px;
+        width: 250px;
     }
 
 }

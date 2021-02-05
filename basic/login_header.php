@@ -2,6 +2,12 @@
  session_start();
  // print_r($_SESSION['cart']);
 ?>
+<div class="alert   alert-dismissible fade show m-0 text-center codealert" role="alert">
+<?php echo $_SESSION['desc12'] ?> <strong><?php echo $_SESSION['title12']; ?></strong> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 
 <nav>
 <!--social-links-and-phone-number----------------->
@@ -29,7 +35,20 @@
     <!--menu----------------->
     <ul class="menu">
         <li><a href="index.php">Home</a></li>
-        <li class="shop"><a href="products.php">Products</a></li>
+        
+        
+        <li class="nav-item dropdown">
+      <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            COLLECTIONS
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="tshirt.php">T-shirts</a>
+        <a class="dropdown-item" href="sweatshirts.php">Sweatshirts </a>
+        <a class="dropdown-item" href="hoodies.php">Hoodies </a>
+
+    </li>
+               
+
         <li><a href="about.php">About Us</a>
         </li>
 
@@ -72,3 +91,4 @@
 </div>
 </div>
 
+<hr class="line">

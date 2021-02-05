@@ -1,6 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu+Mono&family=Ubuntu:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@300&family=Nunito+Sans&family=Poppins&display=swap');
 
+body{
+    font-family: 'Mukta Vaani', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
 html {
     scroll-behavior: smooth;
   }
@@ -30,33 +34,44 @@ html {
     transform: scale(1.1);
    
 }
-/* -----------css for product shop now button------------ */
 
-.textcontent a{
-    text-decoration: none;
-}
-.textcontent a:hover{
-    color:#fff;
-    background-color:black;
-}
-
-.myshopbtn{
-    letter-spacing: 0.2em;
-    font-weight: 400;
-    display: inline-block;
-    color:#fff;
-    background:#1f2134;
-    padding: 10px 20px;
+.cardimgdiv{
+    cursor: pointer;
+    height: 280px;
+	position:relative;
+    border: 1px solid #fff;
+    overflow: hidden;
+    padding: 0px 0px;
 }
 
-.myshopbtndiv a{
-    text-decoration: none;
+.cardimgdiv img{
+    width:100%;
+	height: 100%;
+	object-fit: fill;
+	box-sizing: border-box;
+    background: linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.5)),  center no-repeat;
+    transition: transform 2s linear;
+    overflow: hidden;
 }
-.myshopbtndiv a:hover{
-    /* background-position: left bottom; */
-    background: #000;
-    color: #f6f8fa;
+.cardimgdiv img:hover{
+    transform: scale(1.1);
+   
 }
+
+.carousel-caption h5{
+    text-transform: uppercase;
+    
+}
+
+/*  css animation for moving div upward-------- */
+.myproductscol ,.item-a{
+    transition: 0.3s;
+}
+.myproductscol:hover,.item-a:hover{
+    transform: translate(0, -15px);
+}
+
+
 
 
 /* -----------margin from top for container---------- */
@@ -77,25 +92,6 @@ margin-top: 60px;
     height: 18rem;
 
 }
-
-
- 
-/* ---------css for paragraph text ------------ */
-.mytext p{
-    letter-spacing: 0.1em;
-    padding: 10px;
-    margin: 10px;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-/* --------view all text css--------- */
-.viewalltext{ 
-color: #000000;
-font-weight: bolder;
-font-size: 23px;
-}
-
 
 /* -------css to hide text in mobile view----------- */
  .hidetext-mob{
@@ -134,11 +130,19 @@ font-size: 23px;
     display: none;
 }
 
-.bannertitle{
-    letter-spacing: 0.15em;
-    font-weight: 400;   
+.bannertitle, .mycard-title{
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    cursor: pointer;  
+    
+}
+
+.mycard-title:hover{
+    color: #f76b6a;
 }
 .h2heading {
+    line-height: 5rem;
     font-weight: 400; 
 }
 .product-title{
@@ -146,6 +150,105 @@ font-size: 23px;
     font-size: 20px;
 
 }
+/* Services Box and Footer CSS Code is have given below. */
+.services{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.services-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0,0,0,0.1);
+    min-width: 250px;
+    padding: 20px;
+    margin: 15px;
+    flex-grow: 0.7;
+}
+.services-box i{
+    color: black;
+    font-size: 2rem;
+    margin: 15px;
+}
+.services-box span{
+    color: #222222;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+}
+.services-box p{
+    color: #878787;
+    margin: 0px;
+    font-size: 0.9rem;
+}
+
+
+.h1_heading{
+    letter-spacing: 0.25rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 3rem;
+}
+.h5-heading{
+    letter-spacing: 0.15rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* css for overlay effect on image after banner 2 */
+.image_text_overlay {
+    position: relative;
+    width: 100%;
+    
+  }
+  .dropdown-menu{
+      margin-top: 35px;
+  }
+  .image {
+    display: block;
+    width: 100%;
+    height: 700px;
+  }
+  
+  .text_overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #f1f1f1;
+  }
+  
+  .image_text_overlay:hover .text_overlay {
+    opacity: 1;
+  }
+  
+  .text {
+    color: #000;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .codealert{
+    
+      color: #fff;
+      background: #000;
+  }
 
 @media (max-width: 1180px){
 
@@ -165,6 +268,11 @@ nav ul li a{
 /* ----------media query to make responsive ------------ */
 
 @media (max-width: 980px) {
+    .image {
+        display: block;
+        width: 100%;
+        height: 500px;
+      }
     
   .hidecart{
       display: inline-block;
@@ -194,14 +302,13 @@ nav ul li a{
 
   }
 
- 
 
 
   @media(max-width:640px){
 
-      .textcontent h5,.h2heading{
+      .h2heading{
          font-weight: 400;
-          font-size: 15px;
+          font-size: 22px;
 
       }
       .textcontent p{
@@ -240,12 +347,8 @@ nav ul li a{
     .hidecollap{
         display: none;
     }
-    .myproductscol{
-        flex-direction: row;
-        flex-basis: 50%;
-    }
-    .prodimgmob{
-       
+    
+    .prodimgmob{    
             height: 250px;
             position:relative;
       
@@ -259,9 +362,7 @@ nav ul li a{
     .card-body a{
         font-size: 12px;
     }
-    .card-body h5{
-        font-size: 13px;
-    }.contact_bio{
+    .contact_bio{
         display: block;
     }
     .hideforlap{
@@ -270,4 +371,5 @@ nav ul li a{
     .hideformob{
         display:none;
     }
+    
   }

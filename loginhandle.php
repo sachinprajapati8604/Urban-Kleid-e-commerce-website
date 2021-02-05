@@ -5,17 +5,6 @@ session_start();
 // Turn off error reporting
 error_reporting(0);
 
-// Report runtime errors
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
-
-// Report all errors
-error_reporting(E_ALL);
-
-// Same as error_reporting(E_ALL);
-ini_set("error_reporting", E_ALL);
-
-// Report all errors except E_NOTICE
-error_reporting(E_ALL & ~E_NOTICE);
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -78,6 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;  
                             $_SESSION["fullname"] = $fullname;                            
+                                                        
 
                             
                             // Redirect user to welcome page

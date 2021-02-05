@@ -36,67 +36,20 @@
 
 <body>
 
-
 	<?php
 	include 'basic/header.php';
 	?>
 
-	<div class="container-fluid mt-4">
-	<div class="row m-4">
-		<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th scope="col-sm-2">
-					<div class="align-items-center">
-					<i class="fa fa-th-large" aria-hidden="true"></i>
-					<i class="fa fa-th" aria-hidden="true"></i>
-					</div>
-				
-					</th>
-					<th scope="col-sm-6">
-						
-							<h5 class="text-center">T-Shirt</h5>
-							<p class="lead text-center hideformob">We Provide You New Fasion Design Clothes</p>
-					
-					</th>
-					<th scope="col-sm-2">
-						<div class="dropdown">
-							<p class=" dropdown-toggle" type="button" data-toggle="dropdown">SORT
-								<span class="caret"></span>
-							</p>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<li><a class="dropdown-item" href="#">Low to price</a></li>
-								<li><a class="dropdown-item" href="#">High to price</a></li>
-								<li><a class="dropdown-item" href="#">Popularity</a></li>
-							</ul>
-						</div>
-					</th>
-					<th scope="col-sm-2">
-						<div class="dropdown">
-							<p class=" dropdown-toggle" type="button" data-toggle="dropdown">FILTER
-								<span class="caret"></span>
-							</p>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<li><a class="dropdown-item" href="#">High rated</a></li>
-								<li><a class="dropdown-item" href="#">Best of customers</a></li>
-								<li><a class="dropdown-item" href="#">Best Brand</a></li>
-							</ul>
-						</div>
-					</th>
+	<!--NEW ARRIVAL-------------------------------->
+	<section class="new-arrival">
 
-				</tr>
-			</thead>
-			<tbody>
-
-			</tbody>
-		</table>
-		</div>
 		<!--heading-------->
 		<div class="arrival-heading">
-			<strong>T-Shirt</strong>
+			<strong>T-SHIRTS</strong>
 			<p class="lead mt-4">We Provide You New Fasion Design Clothes</p>
 		</div>
-		<div class="row mt-4">
+		<!--products----------------------->
+		<div class="product-container">
 
 			<?php
 			include 'dbconnect.php';
@@ -113,19 +66,38 @@
 				$bidprice = $row['pro_bid_price'];
 				$imagename = $row['pro_imagename'];
 
-				echo '<div class="col-sm-3 myproductscol my-2">
-					<div class="slide-img prodimgmob">
-					<a href="view_products.php?proid=' . $proid . '">	<img class="card-img-top cardimg" src="img/' . $imagename . '" alt="Card image cap"> </a>
-					</div>
-					<div class="card-body text-center">
-					<a href="view_products.php?proid=' . $proid . '" class="">		<h5 class="card-title product-title">' . $proname . '	</h5>  &#8377; ' . $price . ' <s class="text-muted">' . $bidprice . '</s>  </a>		
-					</div>
-				
-			</div>';
+				echo '  
+				  <form action="manage_cart.php" method="POST">
+					  <!--1------------------------------------>
+					  <div class="item-a">
+						  <!--box-slider--------------->
+						  <div class="box">
+							  <!--img-box---------->
+							  <div class="slide-img">
+							  <a href="view_products.php?proid=' . $proid . '">		  <img alt="1" src="img/' . $imagename . '"> </a>
+								  <!--overlayer---------->
+								  <div class="overlay">
+									  <!--buy-btn------>
+									  <a href="view_products.php?proid=' . $proid . '" type="submit" name="add_to_cart" class="buy-btn">Buy Now</a>   
+									 
+								  </div>
+							  </div>
+							  <!--detail-box--------->
+							  <div class="detail-box text-center">
+									  <a href=" view_products.php?proid=' . $proid . '" class="product-title"> ' . $proname . '</a>	<br>
+									  <!--price-------->				  					  
+								  <a href="view_products.php?proid=' . $proid . '" class="price">&#8377; ' . $price . '   <s class="text-muted">' . $bidprice . '</s>	</a> 
+							  </div>  
+						  </div>						 
+					  </div>
+					  </form>';
 			}
+
 			?>
+
 		</div>
-	</div>
+
+	</section>
 
 
 	<!--NEW ARRIVAL-------------------------------->

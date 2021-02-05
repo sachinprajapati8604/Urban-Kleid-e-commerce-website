@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@300&family=Nunito+Sans&family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    font-family: 'Mukta Vaani', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+.title{
+    color: #283abd;
+
+}
+.h1-heading{
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing:0.15rem;
+
+}
+
+.sm-title{
+    color: #28a745;
+    font-weight: bold;
+}
+
+
+/* drop down hover effect css */
+
+ul li.dropdown-menu{
+    min-width: 100%; /* Set width of the dropdown */
+    background: #f2f2f2;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+}
+ul li:hover .dropdown-menu{
+    display: block;	/* Display the dropdown */
+}
+ul li .dropdown-menu a{
+    display: block;
+}
