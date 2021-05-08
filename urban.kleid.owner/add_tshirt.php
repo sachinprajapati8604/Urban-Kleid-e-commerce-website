@@ -32,10 +32,10 @@ if(isset($_POST['submit'])){
 
  // Looping all files
  for($i=0;$i<$countfiles;$i++){
-  $filename = $_FILES['file']['name'][$i];
+ echo  $filename = $_FILES['file']['name'][$i];
  
   // Upload file
-  move_uploaded_file($_FILES['file']['tmp_name'][$i],'../img/'.$filename);
+  move_uploaded_file($_FILES['file']['tmp_name'][$i],'img/'.$filename);
  
  }
 } 

@@ -184,7 +184,7 @@
                         echo '
                         <form action="checkout.php" method="POST">
                         <div class="btn-group mt-2">
-                            <a href="edit_detail.php' . $id . '" type="submit" name="buy_it_now" class="btn Button-Cart productbtnmobile mr-2">Buy  now </a>
+                            <a href="edit_detail.php" type="submit" name="buy_it_now" class="btn Button-Cart productbtnmobile mr-2">Buy  now </a>
                             <a href="products.php" type="submit"  class="btn Button-Cart productbtnmobile ml-2">Add more</a>
                         </div>
                         </form>';

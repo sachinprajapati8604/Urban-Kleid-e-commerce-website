@@ -37,7 +37,7 @@
     <?php
     include 'dbconnect.php';
     include 'basic/header.php'; 
-       //  error_reporting(0);        
+        error_reporting(0);        
     ?>
 
 <section class="new-arrival mt-4">
