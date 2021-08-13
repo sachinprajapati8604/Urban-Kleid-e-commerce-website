@@ -44,4 +44,30 @@ link:  http://spurbankleid.great-site.net/
 * Admin cen see thier customer details, but can't access thier profile because password is encrepted.
 
 
+# Trasaction
+
+<b>I used Pay U Money to perform transaction. </b>
+ You can use this demo card to perform transactions
+  <pre>
+ * First Card
+ 
+  Card Type:    Visa
+  Card Name:    Test
+  Card Number:  4012 0010 3714 1112
+  Expirey Date : 05/21 (use current year)
+  CVV:          123
+  OTP:          123456
+  
+  * Second Card
+  
+  Card Type:    Master
+  Card Name:    Test
+  Card Number:   5123 4567 8901 2346
+  Expirey Date : 05/21 (use current year)
+  CVV:          123
+  OTP:          123456
+  
+  
+  </pre>
+
 
