@@ -1,4 +1,4 @@
-# Urban-Kleid-E-Commerce-Website
+# Urban-Kleid --- E-Commerce-Website
 
 This is fully developed shopping site using PHP and MySQL database. Simpy you can see the products and click to add to cart to your favourite one and buy it.I developed this for both user and admin side. I have taken all the edge cases to build this site.
 
